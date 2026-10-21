@@ -1,0 +1,95 @@
+/* Drug allergy card faces. All dimensions use --mm so the same markup renders
+   at true size when printed (--mm: 1mm) and scales fluidly on screen. */
+:root { --mm: 1mm; --card-red: #b01c2e; --card-red-dark: #8a1324; --card-red-soft: #fdecee; --card-amber: #a15c00; --card-amber-soft: #fff4e0; }
+.card-stage { --mm: calc(100cqw / 85.6); }
+.a4-preview > .a4-sheet { --mm: calc(100cqw / 210); }
+
+.card-face {
+  position: relative; overflow: hidden; width: calc(var(--mm) * 85.6); height: calc(var(--mm) * 53.98);
+  background: #fff; color: #111827; font-family: 'Sarabun', sans-serif; line-height: 1.2;
+  -webkit-print-color-adjust: exact; print-color-adjust: exact;
+}
+.card-face * { box-sizing: border-box; }
+.card-face .nowrap, .cf-name, .cf-ids, .cf-drug, .cf-entry-title, .cf-entry-line, .cf-entry-meta, .cf-verify > div, .cf-facility span, .cf-facility small, .cf-foot { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+/* front */
+.cf-band { display: flex; align-items: center; gap: calc(var(--mm) * 2); height: calc(var(--mm) * 11.7); padding: 0 calc(var(--mm) * 3); background: var(--card-red); color: #fff; }
+.cf-alert {
+  flex: none; width: calc(var(--mm) * 5.4); height: calc(var(--mm) * 4.7); background: #fff; color: var(--card-red);
+  clip-path: polygon(50% 0, 100% 100%, 0 100%); display: grid; place-items: end center; font-weight: 700; font-size: calc(var(--mm) * 3.3); line-height: 1; padding-bottom: calc(var(--mm) * 0.25);
+}
+.cf-title { display: grid; min-width: 0; }
+.cf-title strong { font-size: calc(var(--mm) * 4.4); font-weight: 700; line-height: 1.05; letter-spacing: 0.01em; }
+.cf-title small { font-size: calc(var(--mm) * 2.25); font-weight: 600; color: #ffe4e6; letter-spacing: 0.02em; }
+.cf-facility { margin-left: auto; display: grid; text-align: right; min-width: 0; max-width: 46%; }
+.cf-facility span { font-size: calc(var(--mm) * 2.25); font-weight: 600; }
+.cf-facility small { font-size: calc(var(--mm) * 1.76); color: #ffe4e6; }
+
+.cf-label { display: block; font-size: calc(var(--mm) * 1.7); color: #4b5563; }
+.cf-patient { padding: calc(var(--mm) * 1.2) calc(var(--mm) * 3) calc(var(--mm) * 1); border-bottom: calc(var(--mm) * 0.2) solid #d1d5db; margin: 0 0 0 0; }
+.cf-patient { margin-inline: calc(var(--mm) * 3); padding-inline: 0; }
+.cf-name { font-size: calc(var(--mm) * 3.2); font-weight: 700; margin-top: calc(var(--mm) * 0.3); }
+.cf-ids { display: flex; gap: calc(var(--mm) * 2.2); font-size: calc(var(--mm) * 2.1); font-weight: 600; color: #4b5563; margin-top: calc(var(--mm) * 0.5); }
+.cf-drugs { padding: calc(var(--mm) * 1) calc(var(--mm) * 3) 0; }
+.cf-drugs ul { list-style: none; margin: calc(var(--mm) * 0.6) 0 0; padding: 0; display: grid; gap: calc(var(--mm) * 1.2); }
+.cf-drugs.is-compact ul { gap: calc(var(--mm) * 0.6); }
+.cf-drugs li { display: flex; align-items: center; gap: calc(var(--mm) * 1); min-width: 0; }
+.cf-drug { font-size: calc(var(--mm) * 3.35); font-weight: 700; color: var(--card-red-dark); min-width: 0; flex: 0 1 auto; }
+.cf-type { font-size: calc(var(--mm) * 1.76); color: #4b5563; white-space: nowrap; flex: none; }
+.cf-badge {
+  margin-left: auto; flex: none; font-size: calc(var(--mm) * 1.95); font-weight: 700; padding: calc(var(--mm) * 0.35) calc(var(--mm) * 1.1);
+  border-radius: calc(var(--mm) * 2); line-height: 1.15; letter-spacing: 0.02em;
+}
+.cf-badge-confirmed { background: var(--card-red); color: #fff; }
+.cf-badge-suspected { background: var(--card-amber-soft); color: var(--card-amber); box-shadow: inset 0 0 0 calc(var(--mm) * 0.25) var(--card-amber); }
+.cf-more { margin: calc(var(--mm) * 0.6) 0 0; font-size: calc(var(--mm) * 1.85); font-weight: 600; color: var(--card-red); }
+.cf-foot { position: absolute; left: 0; right: 0; bottom: 0; height: calc(var(--mm) * 3.35); display: flex; align-items: center; justify-content: center; padding: 0 calc(var(--mm) * 3); background: var(--card-red-soft); color: var(--card-red-dark); font-size: calc(var(--mm) * 1.9); font-weight: 600; }
+
+/* back */
+.cf-topline { height: calc(var(--mm) * 1.4); background: var(--card-red); }
+.cf-back-grid { display: grid; grid-template-columns: 1fr calc(var(--mm) * 19); gap: calc(var(--mm) * 2.5); padding: calc(var(--mm) * 1.3) calc(var(--mm) * 3) 0; }
+.cf-entries { min-width: 0; display: grid; align-content: start; gap: calc(var(--mm) * 1.1); }
+.cf-entries.is-compact { gap: calc(var(--mm) * 0.5); }
+.cf-entry { min-width: 0; }
+.cf-entry-title { font-size: calc(var(--mm) * 2.19); font-weight: 700; color: var(--card-red-dark); }
+.cf-entry-line { font-size: calc(var(--mm) * 1.83); }
+.cf-entry-meta { font-size: calc(var(--mm) * 1.7); color: #4b5563; }
+.cf-qr { text-align: center; padding-top: calc(var(--mm) * 1.2); }
+.cf-qr-box { width: calc(var(--mm) * 19); height: calc(var(--mm) * 19); }
+.cf-qr-box svg { width: 100%; height: 100%; display: block; }
+.cf-qr-box.is-placeholder { display: grid; place-items: center; border: calc(var(--mm) * 0.25) dashed #6b7280; color: #6b7280; font-weight: 700; font-size: calc(var(--mm) * 3.5); }
+.cf-serial { font-size: calc(var(--mm) * 1.7); font-weight: 600; margin-top: calc(var(--mm) * 0.8); white-space: nowrap; }
+.cf-scan { font-size: calc(var(--mm) * 1.38); color: #4b5563; line-height: 1.15; }
+.cf-verify { position: absolute; left: calc(var(--mm) * 3); right: calc(var(--mm) * 24.5); bottom: calc(var(--mm) * 1.6); border-top: calc(var(--mm) * 0.18) solid #d1d5db; padding-top: calc(var(--mm) * 0.6); font-size: calc(var(--mm) * 1.62); color: #4b5563; }
+.cf-verify-by { font-size: calc(var(--mm) * 1.76); font-weight: 600; color: #111827; }
+
+.cf-watermark {
+  position: absolute; inset: 0; display: grid; place-items: center; pointer-events: none; transform: rotate(-18deg);
+  font-size: calc(var(--mm) * 5); font-weight: 700; color: rgba(176, 28, 46, 0.18); white-space: nowrap;
+}
+
+/* revoked overlay (web card) */
+.card-face.is-revoked { filter: grayscale(1); opacity: 0.55; }
+
+/* A4 sheet (screen preview + print) */
+.a4-sheet { font-family: 'Sarabun', sans-serif; color: #111827; }
+.a4-sheet h1 { font-size: calc(var(--mm) * 5); margin: 0; }
+.a4-sheet h2 { font-size: calc(var(--mm) * 4); margin: calc(var(--mm) * 8) 0 calc(var(--mm) * 1); }
+.a4-head p, .a4-sheet > .muted { font-size: calc(var(--mm) * 2.7); color: #4b5563; margin: calc(var(--mm) * 1) 0 0; }
+.fold-pair { display: flex; justify-content: center; margin-top: calc(var(--mm) * 8); }
+.fold-pair { outline: calc(var(--mm) * 0.2) dashed #6b7280; outline-offset: 0; width: max-content; margin-inline: auto; }
+.fold-cell + .fold-cell { border-left: calc(var(--mm) * 0.2) dotted #9ca3af; }
+.a4-sheet .summary-list { font-size: calc(var(--mm) * 2.9); }
+.a4-foot { font-size: calc(var(--mm) * 2.4); color: #4b5563; margin-top: calc(var(--mm) * 5); }
+
+/* Summary list (shared) */
+.summary-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; counter-reset: s; }
+.summary-item { border: 1px solid var(--card-amber); border-radius: 12px; padding: 10px 14px; counter-increment: s; }
+.summary-item.summary-confirmed { border-color: var(--card-red); }
+.summary-head { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; color: var(--card-red-dark); }
+.summary-head::before { content: counter(s) '.'; font-weight: 700; }
+.summary-head .cf-badge { font-size: 0.72em; padding: 2px 8px; border-radius: 99px; }
+.summary-kv { display: grid; grid-template-columns: fit-content(40%) 1fr; gap: 3px 12px; margin: 6px 0 0; }
+.summary-kv dt { color: #6b7280; }
+.summary-kv dd { margin: 0; }
+.a4-sheet .summary-kv dt, .a4-sheet .muted { color: #4b5563; }

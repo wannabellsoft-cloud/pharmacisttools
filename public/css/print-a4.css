@@ -1,0 +1,9 @@
+/* A4 on standard printers: card front and back side by side (cut out, fold in
+   the middle, laminate), followed by the full allergy summary. */
+@page { size: A4; margin: 12mm; }
+@media print {
+  #print-root { --mm: 1mm; }
+  .a4-sheet { --mm: 1mm; }
+  .card-face { border-radius: 0 !important; box-shadow: none !important; }
+  .summary-item { break-inside: avoid; }
+}

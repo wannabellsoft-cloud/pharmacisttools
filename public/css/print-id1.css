@@ -1,0 +1,11 @@
+/* ID-1 (CR80) card: 85.60 × 53.98 mm, one face per page.
+   Card printers: enable duplex so page 1 = front and page 2 = back.
+   Backgrounds bleed to the edge; keep printer scaling at 100% / Actual size. */
+@page { size: 85.6mm 53.98mm; margin: 0; }
+@media print {
+  html, body { margin: 0; padding: 0; }
+  #print-root { --mm: 1mm; }
+  .print-page { width: 85.6mm; height: 53.98mm; overflow: hidden; page-break-after: always; break-after: page; }
+  .print-page:last-child { page-break-after: auto; break-after: auto; }
+  .card-face { border-radius: 0 !important; box-shadow: none !important; }
+}
